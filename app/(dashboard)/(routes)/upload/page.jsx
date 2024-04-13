@@ -50,7 +50,7 @@ export default function page() {
               console.error("Error getting download URL:", error);
               // Handle error
             });
-        }, 2000);
+        }, 1000);
       }
     });
   };
