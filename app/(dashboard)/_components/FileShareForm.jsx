@@ -24,7 +24,19 @@ export default function FileShareForm({ file, onPasswordSave }) {
     GlobalApi.SendEmail(data).then((res) => {
       console.log(data);
       console.log("reached");
-      console.log(res);
+      //If there is data in the response show toast
+      if (res.data.data) {
+        toast.success("Email sent successfully", {
+          position: "top-right",
+          autoClose: 2000,
+        });
+      } else {
+        toast.error("Email not sent", {
+          position: "top-right",
+          autoClose: 2000,
+        });
+      }
+      // console.log(res.data.data);
     });
   };
   const onCopyClick = () => {
