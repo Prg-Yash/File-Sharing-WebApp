@@ -34,7 +34,7 @@ export const EmailTemplate = ({ response }) => (
               style={image}
               width={800}
               src={
-                " https://firebasestorage.googleapis.com/v0/b/share-dom.appspot.com/o/files-upload%2FSharedom.png?alt=media&token=f5077ffe-f6e8-4acd-8f74-ec4cee6b4001"
+                " https://firebasestorage.googleapis.com/v0/b/share-dom.appspot.com/o/files-upload%2FSharedom.png?alt=media&token=452a9d5b-cee1-41ef-b442-c98f5f3f2ce0"
               }
             />
           </Row>
@@ -105,7 +105,7 @@ export const EmailTemplate = ({ response }) => (
             style={image}
             width={620}
             src={
-              " https://firebasestorage.googleapis.com/v0/b/share-dom.appspot.com/o/files-upload%2FSharedom.png?alt=media&token=f5077ffe-f6e8-4acd-8f74-ec4cee6b4001"
+              "https://firebasestorage.googleapis.com/v0/b/share-dom.appspot.com/o/files-upload%2FSharedom.png?alt=media&token=452a9d5b-cee1-41ef-b442-c98f5f3f2ce0"
             }
           />
         </Section>

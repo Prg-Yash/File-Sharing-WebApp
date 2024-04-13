@@ -5,7 +5,7 @@ import Hero from "./_components/Hero";
 // import Hero from "@/app/_components/Hero";
 export default function Home() {
   return (
-    <div className="h-screen md:h-screen lg:h-screen bg-gray-900 text-white lg:items-center">
+    <div className="h-screen md:h-screen lg:h-screen bg-gray-900 text-white lg:items-end">
       <Header />
 
       <Hero />
