@@ -66,7 +66,7 @@ export default function page() {
       userName: user?.fullName,
       password: "",
       id: docId,
-      shortUrl: process.env.NEXT_PUBLIC_BASE_URL + "/f/" + docId,
+      shortUrl: "https://sharedom.vercel.app" + "/f/" + docId,
     });
     setFileDocId(docId);
     console.log(docId);
