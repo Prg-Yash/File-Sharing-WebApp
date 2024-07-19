@@ -12,6 +12,7 @@ import {
   SheetTrigger,
 } from "../../../@/components/ui/sheet";
 import SideNav from "../../(dashboard)/_components/SideNav";
+import Link from "next/link";
 
 export default function TopHeader() {
   return (
@@ -30,14 +31,15 @@ export default function TopHeader() {
           </SheetHeader>
         </SheetContent>
       </Sheet>
-
-      <Image
-        src="/logo.svg"
-        alt="logo"
-        width={150}
-        height={100}
-        className="md:hidden"
-      />
+      <Link href="/">
+        <Image
+          src="/logo.svg"
+          alt="logo"
+          width={150}
+          height={100}
+          className="md:hidden"
+        />
+      </Link>
       <UserButton />
     </div>
   );

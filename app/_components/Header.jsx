@@ -11,6 +11,7 @@ import {
   SheetTrigger,
 } from "../../@/components/ui/sheet";
 import SideNav from "../(dashboard)/_components/SideNav";
+import Link from "next/link";
 
 export default function Header() {
   // const openMenu = () => {
@@ -36,13 +37,15 @@ export default function Header() {
       <div>
         <header className=" bg-gray-800 ">
           <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-            <Image
-              src="/logo.svg"
-              alt="logo"
-              width={150}
-              height={50}
-              className="my-2"
-            />
+            <Link href="/">
+              <Image
+                src="/logo.svg"
+                alt="logo"
+                width={150}
+                height={50}
+                className="my-3"
+              />
+            </Link>
 
             <div className="flex flex-1 items-center justify-end md:justify-between">
               <nav aria-label="Global" className="hidden md:block">
