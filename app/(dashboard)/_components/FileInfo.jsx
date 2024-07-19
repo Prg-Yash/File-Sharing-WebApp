@@ -19,7 +19,7 @@ export default function FileInfo({ file }) {
           className="h-[200px] rounded-md object-contain"
         />
         <div className="">
-          <h2 className="text-center text-1xl font-semibold">
+          <h2 className="text-center text-1xl font-semibold text-gray-400">
             {file?.fileName}
           </h2>
           <h2 className="text-center text-gray-400">

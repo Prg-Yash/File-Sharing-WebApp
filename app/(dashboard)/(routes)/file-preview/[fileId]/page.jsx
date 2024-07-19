@@ -9,6 +9,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import { ArrowLeftSquare } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import bcrypt from "bcryptjs";
 
 function page({ params }) {
   const [file, setFile] = useState(null);
@@ -29,9 +30,12 @@ function page({ params }) {
     }
   };
   const onPasswordSave = async (password) => {
+    //hash password
+    const hash = await bcrypt.hash(password, 10);
+
     await setDoc(doc(db, "uploadedFile", file.id), {
       ...file,
-      password: password,
+      password: hash,
     });
     toast.success("Password saved successfully", {
       position: "top-right",
@@ -40,7 +44,7 @@ function page({ params }) {
   };
   return (
     <div className="py-10 px-20 bg-gray-900 h-screen">
-      <Link href="/upload" className="flex gap-3">
+      <Link href="/upload" className="flex gap-3 text-gray-400">
         <ArrowLeftSquare />
         Go to Upload
       </Link>

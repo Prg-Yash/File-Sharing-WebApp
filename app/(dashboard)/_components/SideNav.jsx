@@ -34,7 +34,7 @@ export default function SideNav() {
   };
 
   return (
-    <div className=" shadow-sm  h-full bg-gray-800 ">
+    <div className=" shadow-sm   bg-gray-800 h-screen">
       <div className="p-5 pl-12">
         <a href="/">
           <Image src="/logo.svg" alt="logo" width={150} height={100} />

@@ -1,5 +1,5 @@
 "use client";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
 import { collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 import { app, db } from "../../../firebase/config";
@@ -9,19 +9,35 @@ import toast from "react-hot-toast";
 
 export default function page() {
   const storage = getStorage(app);
+  const { isSignedIn, user, isLoaded } = useUser();
 
   const [files, setFiles] = useState([]);
+
   useEffect(() => {
     const getFiles = async () => {
+      if (!isLoaded) {
+        // Handle loading state however you like
+        return null;
+      }
+
+      if (isSignedIn) {
+        console.log("Username:" + user.primaryEmailAddress.emailAddress);
+      }
       const querySnapshot = await getDocs(collection(db, "uploadedFile"));
-      const filesData = querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setFiles(filesData);
+      const files = [];
+      querySnapshot.forEach((doc) => {
+        if (
+          user &&
+          doc.data().userEmail === user.primaryEmailAddress.emailAddress
+        ) {
+          console.log(doc.data());
+          files.push({ ...doc.data(), id: doc.id });
+        }
+      });
+      setFiles(files);
     };
     getFiles();
-  }, []);
+  }, [isLoaded, isSignedIn, user]);
 
   const onDeleteFile = (file) => async () => {
     try {
@@ -33,27 +49,28 @@ export default function page() {
         .catch((error) => {
           console.log(error);
         });
-      deleteDoc(doc(db, "uploadedFile", file.id));
+      await deleteDoc(doc(db, "uploadedFile", file.id));
       toast.success("File deleted successfully");
       setFiles((prevFiles) => prevFiles.filter((f) => f.id !== file.id));
     } catch (error) {
       console.error("Error removing document: ", error);
     }
   };
+
   return (
     <div className="bg-gray-900 h-screen p-5">
       <div className="overflow-x-auto">
         <div>
           <h2 className="text-white text-xl uppercase">My Files</h2>
-          <div className=" p-5 text-lg  flex  justify-between  bg-gray-500/10 m-2 rounded-lg">
-            <h2 className="text-gray-400 ">Total Files:</h2>
+          <div className="p-5 text-lg flex justify-between bg-gray-500/10 m-2 rounded-lg">
+            <h2 className="text-gray-400">Total Files:</h2>
             <span className="text-gray-400">{files.length}</span>
           </div>
         </div>
         <div>
           <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-              <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <table className="w-full text-sm text-left rtl:text-right text-gray-400 dark:text-gray-400">
+              <thead className="text-xs text-gray-700 uppercase  bg-gray-700 dark:text-gray-400">
                 <tr>
                   <th scope="col" className="px-6 py-3">
                     File Name

@@ -3,12 +3,15 @@ import { Download } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 import { toast } from "react-hot-toast";
+import bcrypt from "bcryptjs";
 
 export default function FileItem({ file }) {
   const [password, setPassword] = useState("");
 
   const checkPassword = (password, filePassword) => {
-    if (password === filePassword) {
+    const passwordMatch = bcrypt.compareSync(password, filePassword);
+
+    if (passwordMatch) {
       toast.success("Password matched, downloading file", {
         position: "top-right",
         autoClose: 3000,
