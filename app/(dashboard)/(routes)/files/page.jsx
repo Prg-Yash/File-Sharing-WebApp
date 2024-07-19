@@ -89,9 +89,9 @@ export default function page() {
                 {files.map((file) => (
                   <tr
                     key={file.id}
-                    className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
+                    className=" odd:dark:bg-gray-900  even:dark:bg-gray-800 border-b dark:border-gray-700"
                   >
-                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                    <td className="px-6 py-4 font-medium  whitespace-nowrap dark:text-white">
                       {file.fileName}
                     </td>
                     <td className="px-6 py-4">{file.fileType}</td>
