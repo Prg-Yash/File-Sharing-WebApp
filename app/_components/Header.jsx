@@ -49,7 +49,7 @@ export default function Header() {
                 <ul className="flex items-center gap-6 text-sm">
                   <li>
                     <a
-                      className="transition  text-white hover:text-white/75"
+                      className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                       href="/"
                     >
                       Home
@@ -58,7 +58,7 @@ export default function Header() {
 
                   <li>
                     <a
-                      className=" transition  text-white hover:text-white/75"
+                      className="text-gray-500 transition hover:text-gray-500/75 dark:text-white dark:hover:text-white/75"
                       href="/upload"
                     >
                       Upload
@@ -77,7 +77,7 @@ export default function Header() {
                   </a>
                 </div>
                 {/* <div className="md:hidden"> */}
-                {/* <Menu className="cursor-pointer text-gray-500 text-white" /> */}
+                {/* <Menu className="cursor-pointer text-gray-500 dark:text-white" /> */}
                 {/* {openMenu()} */}
                 {/* </div> */}
               </div>
