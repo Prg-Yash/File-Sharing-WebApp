@@ -23,7 +23,7 @@ export default function Header() {
   //       <SheetContent side="right" className="w-[400px] sm:w-[540px] ">
   //         <SheetHeader>
   //           {/* <SheetTitle className="text-white flex justify-center ">
-  //             <Image src="/logo.svg" alt="logo" width={200} height={50} />
+  //             <Image src="/logo.png" alt="logo" width={200} height={50} />
   //           </SheetTitle> */}
   //           <SideNav />
   //         </SheetHeader>
@@ -36,7 +36,7 @@ export default function Header() {
       <div>
         <header className=" bg-gray-800 ">
           <div className="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-            <Image src="/logo.svg" alt="logo" width={200} height={50} />
+            <Image src="/logo.png" alt="logo" width={200} height={50} />
 
             <div className="flex flex-1 items-center justify-end md:justify-between">
               <nav aria-label="Global" className="hidden md:block">

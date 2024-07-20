@@ -32,7 +32,7 @@ export default function TopHeader() {
       </Sheet>
 
       <Image
-        src="/logo.svg"
+        src="/logo.png"
         alt="logo"
         width={150}
         height={100}

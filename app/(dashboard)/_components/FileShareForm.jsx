@@ -105,7 +105,7 @@ export default function FileShareForm({ file, onPasswordSave }) {
           </div>
         ) : null}
         <div className="border rounded mt-5 p-2">
-          <label htmlFor="" className="text-[15px] text-gray-500">
+          <label htmlFor="" className="text-[15px] text-gray-500 ">
             Send File to Email
           </label>
           <div className="border rounded-md w-full p-2 mt-3">
@@ -119,7 +119,7 @@ export default function FileShareForm({ file, onPasswordSave }) {
             />
           </div>
           <button
-            className="bg-primary p-3 rounded-lg mt-3 w-full"
+            className="bg-blue-900 text-white p-3 rounded-lg mt-3 w-full"
             onClick={() => sendEmail()}
           >
             Send Email

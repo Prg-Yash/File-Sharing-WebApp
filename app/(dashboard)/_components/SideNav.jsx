@@ -37,7 +37,7 @@ export default function SideNav() {
     <div className=" shadow-sm   bg-gray-800 h-screen">
       <div className="p-5 pl-12">
         <a href="/">
-          <Image src="/logo.svg" alt="logo" width={150} height={100} />
+          <Image src="/logo.png" alt="logo" width={150} height={100} />
         </a>
       </div>
       <div className=" flex flex-col float-left w-full ">
